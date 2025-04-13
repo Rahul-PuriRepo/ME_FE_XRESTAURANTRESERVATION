@@ -7,6 +7,8 @@ set -e
  
 # Read the first line starting with http from submit.txt
 USER_LINK_SUBMISSION=$(grep -m 1 '^http' submit.txt)
+# Ensure trialing slash is present
+USER_LINK_SUBMISSION="${USER_LINK_SUBMISSION%/}/"
  
 # Check if USER_LINK_SUBMISSION is non-empty
 if [ -z "$USER_LINK_SUBMISSION" ]; then
