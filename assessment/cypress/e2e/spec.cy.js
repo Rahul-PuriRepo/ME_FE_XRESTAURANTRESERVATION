@@ -20,7 +20,7 @@ describe('Restaurant Reservation', () => {
     cy.get('div#city').click(); // Open city dropdown
     cy.contains('li', 'Austin', { timeout: 5000 }).click(); // Wait for city options to load and select Austin
   
-    cy.get('button[type="submit"]').should('contain.text', 'Search').click({multiple: true});
+    cy.get('#searchBtn').should('contain.text', 'Search').click(); // Click the search button
     cy.wait('@getRestaurants');
     cy.get('h1').should('contain.text', '2 restaurants available in Austin');
   });
@@ -40,7 +40,7 @@ describe('Restaurant Reservation', () => {
     cy.contains('li', 'Austin') // Replace with a valid city option
     .click();
 
-    cy.get('button[type="submit"]').should('contain.text', 'Search').click({multiple: true});
+    cy.get('#searchBtn').should('contain.text', 'Search').click(); // Click the search button
 
     cy.wait('@getRestaurants');
     cy.get('button').contains('Book FREE Reservation').should('be.visible');
@@ -60,7 +60,7 @@ describe('Restaurant Reservation', () => {
     cy.contains('li', 'Austin') // Replace with a valid city option
     .click();
 
-    cy.get('button[type="submit"]').should('contain.text', 'Search').click({multiple: true});
+    cy.get('#searchBtn').should('contain.text', 'Search').click(); // Click the search button
 
     cy.wait('@getRestaurants');
     cy.get('button').contains('Book FREE Reservation')
