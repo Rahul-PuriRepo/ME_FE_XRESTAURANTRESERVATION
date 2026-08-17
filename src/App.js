@@ -454,9 +454,10 @@ function AppContent() {
     navigate(`/search?state=${encodeURIComponent(state)}&city=${encodeURIComponent(city)}`);
   };
 
-  const params = new URLSearchParams(window.location.search);
+  
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
     const state = params.get("state");
     const city = params.get("city");
 
